@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/admin/admin_login_style.css">
+
+    <script>
+(async () => {
+    try {
+        const res = await fetch('/api/session-check', { credentials: 'include' });
+        const data = await res.json();
+        const isLoginPage = window.location.pathname.endsWith('/admin/admin_login.html');
+        const isAdminPage = window.location.pathname === '/admin';
+        if (data.loggedIn && isLoginPage) {
+            window.location.href = '/admin';
+        } else if (!data.loggedIn && isAdminPage) {
+            window.location.href = '/admin/admin_login.html';
+        }
+    } catch (e) {}
+})();
+</script>
+</head>
+<body class="bg-gray-200">
+    <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
+        <h2 class="text-3xl font-bold text-gray-800 text-center mb-6">Admin Login</h2>
+        <form id="loginForm" class="space-y-6">
+            <div>
+                <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+                <input type="text" id="username" name="username" required
+                       class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm
+                              focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-base"
+                       placeholder="Enter your username">
+            </div>
+            <div>
+                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="password" name="password" required
+                       class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm
+                              focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-base"
+                       placeholder="Enter your password">
+            </div>
+            <p id="loginError" class="text-red-600 text-sm hidden text-center"></p>
+            <button type="submit"
+                    class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-2.5 px-4 rounded-lg
+                           shadow-md hover:shadow-lg transition duration-300 ease-in-out
+                           focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75">
+                Login
+            </button>
+        </form>
+    </div>
+
+    <script src="/admin/admin_login_script.js"></script>
+</body>
+</html>

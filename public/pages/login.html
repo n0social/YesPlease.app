@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="/css/site-style.css">
+    </head>
+<body>
+    <main class="login-container">
+        <div class="login-icon">
+            <!--Web App Logo-->
+            <img src="/assets/Main_app_image.png" alt="App Logo" style="width:92px;height:92px;object-fit:contain;">
+        </div>
+        <div class="login-title">Welcome Back</div>
+        <div class="login-subtitle">Sign In to Continue</div>
+        <form id="loginForm" autocomplete="off">
+            <label class="login-label" for="email">Email</label>
+            <input class="login-input" type="email" id="email" name="email" placeholder="Enter your email" required>
+            <label class="login-label" for="password">Password</label>
+            <input class="login-input" type="password" id="password" name="password" placeholder="************" required>
+            <div class="login-row">
+                <label style="display:flex;align-items:center;">
+                    <input class="login-checkbox" type="checkbox" id="keepLoggedIn" name="keepLoggedIn">
+                    Keep me logged in
+                </label>
+                <a href="/pages/forgot-password.html" tabindex="0">Forgot Password?</a>
+            </div>
+            <button class="login-btn" type="submit">Sign In</button>
+        </form>
+        <div class="login-footer">
+            Don't have an account?
+            <a href="/pages/register.html">Create Account</a>
+        </div>
+    </main>
+    <script src="/js/site-script.js"></script>
+    <script src="/js/login.js"></script>
+</body>
+</html>

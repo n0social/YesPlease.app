@@ -1,0 +1,8 @@
+body {
+            font-family: 'Inter', sans-serif;
+            background-color: #e2e8f0; /* bg-gray-200 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }

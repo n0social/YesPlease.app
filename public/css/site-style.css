@@ -1,0 +1,1234 @@
+/* =================================================================
+   GLOBAL & LOGIN PAGE STYLES
+================================================================= */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Styles for the Login/Register pages */
+body {
+    background: #00e6e6;
+    min-height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', Arial, sans-serif;
+    opacity: 0;
+    animation: backgroundFadeIn 1s ease-out forwards;
+}
+
+@keyframes backgroundFadeIn {
+    to { opacity: 1; }
+}
+
+.login-container {
+    background: #fff;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18), 0 1.5px 6px rgba(0,0,0,0.10);
+    padding: 2.5rem 2rem;
+    max-width: 370px;
+    width: 100%;
+    margin: 2rem auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+    animation: containerFadeIn 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) 0.3s forwards;
+}
+
+@keyframes containerFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+#loginForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: contentFadeIn 0.6s ease-out 0.9s forwards;
+}
+
+@keyframes contentFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ... (other login styles from your original file) ... */
+.login-icon { width: 92px; height: 92px; background: #e0f7fa; border-radius: 1rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; opacity: 0; transform: translateY(20px); animation: contentFadeIn 0.6s ease-out 0.6s forwards; }
+.login-icon svg { width: 60px; height: 60px; color: #00bcd4; }
+.login-title { font-size: 1.5rem; font-weight: 600; margin-bottom: 0.2rem; color: #222; text-align: center; opacity: 0; transform: translateY(20px); animation: contentFadeIn 0.6s ease-out 0.7s forwards; }
+.login-subtitle { color: #888; font-size: 1rem; margin-bottom: 1.5rem; text-align: center; opacity: 0; transform: translateY(20px); animation: contentFadeIn 0.6s ease-out 0.8s forwards; }
+.login-label { font-size: 1rem; color: #222; margin-bottom: 0.3rem; font-weight: 500; }
+.login-input { width: 100%; padding: 0.7rem 1rem; border: 1px solid #e0e0e0; border-radius: 0.7rem; margin-bottom: 1.1rem; font-size: 1rem; background: #f7f7f7; outline: none; transition: all 0.3s ease; min-width: 0; box-sizing: border-box; }
+.login-input:focus { border-color: #00e6e6; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0, 230, 230, 0.15); }
+.login-row { display: flex; align-items: center; justify-content: space-between; width: 100%; margin-bottom: 1.1rem; }
+.login-checkbox { accent-color: #00e6e6; margin-right: 0.5rem; }
+.login-btn { width: 100%; padding: 0.8rem 0; background: #00e6e6; color: #fff; font-size: 1.1rem; font-weight: 600; border: none; border-radius: 0.7rem; cursor: pointer; margin-bottom: 1rem; transition: all 0.3s ease; }
+.login-btn:hover { background: #00bcd4; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0, 188, 212, 0.3); }
+.login-links { display: flex; justify-content: space-between; width: 100%; font-size: 0.97rem; }
+.login-links a { color: #00bcd4; text-decoration: none; transition: color 0.2s; }
+.login-links a:hover { color: #0097a7; }
+.login-footer { margin-top: 1.5rem; font-size: 0.97rem; color: #555; text-align: center; opacity: 0; transform: translateY(20px); animation: contentFadeIn 0.6s ease-out 1s forwards; }
+.login-footer a { color: #00bcd4; text-decoration: none; font-weight: 500; }
+
+/* =================================================================
+   HOME PAGE STYLES (SCOPED TO .home-page)
+================================================================= */
+
+/* Override default body styles ONLY for the home page */
+body.home-page {
+    background: linear-gradient(135deg, #00e6e6 0%, #00bcd4 100%);
+    min-height: 50vh;
+    max-height:80vh;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow-x: hidden;
+    /* Reset login page body styles */
+    display: block;
+    align-items: initial;
+    justify-content: initial;
+    animation: none;
+    opacity: 1;
+}
+
+.home-page .profile-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.home-page .profile-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #00bcd4;
+}
+
+.home-page .welcome-text {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.home-page .app-container {
+    margin-top: 90px;
+    padding: 0 1rem 120px 1rem;
+    display: flex;
+    justify-content: center;
+    min-height: calc(100vh - 90px);
+}
+
+.home-page .cards-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: calc(100vh - 210px);
+    min-height: 400px;
+    border-radius: 24px;
+}
+
+.home-page .app-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    display: none; /* Hide all cards by default */
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.home-page .app-card.active {
+    display: flex !important; /* Show only the active card */
+    z-index: 10;
+}
+
+.home-page #newsFeedCard {
+    display: flex !important;
+    z-index: 10;
+}
+
+.home-page .card-header {
+    background: linear-gradient(135deg, #00e6e6, #00bcd4);
+    color: white;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 24px 24px 0 0;
+    flex-shrink: 0;
+}
+
+.home-page .card-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.home-page .card-content {
+    flex: 1;
+    padding: 1.5rem 2rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.home-page .bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.home-page .nav-btn {
+    background: none;
+    border: none;
+    color: #999;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    min-width: 60px;
+}
+
+.home-page .nav-btn i {
+    font-size: 1.4rem;
+}
+
+.home-page .nav-btn span {
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.home-page .nav-btn.active {
+    color: #00bcd4;
+    background: rgba(0, 188, 212, 0.1);
+}
+
+/* =================================================================
+   NEWS FEED & OTHER CARD CONTENT STYLES
+================================================================= */
+
+.home-page .post-item {
+    background: #f8f9fa;
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-page .post-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.home-page .post-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.home-page .post-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #00bcd4;
+}
+
+.home-page .post-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.home-page .post-username {
+    font-weight: 600;
+    color: #333;
+    font-size: 1rem;
+}
+
+.home-page .post-time {
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.home-page .post-content {
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    white-space: pre-wrap; /* Preserve line breaks and spaces */
+    word-wrap: break-word; /* Break long words */
+    overflow-wrap: break-word; /* Handle long content */
+    margin: 0; /* Remove default paragraph margins */
+}
+
+.home-page .post-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.home-page .post-actions {
+    display: flex;
+    gap: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #f3f4f6;
+    justify-content: center; /* Center the single like button */
+}
+
+.home-page .action-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    color: #6b7280;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 80px;
+    justify-content: center;
+}
+
+.home-page .action-btn:hover {
+    background: #f3f4f6;
+    color: #374151;
+    border-color: #d1d5db;
+}
+
+.home-page .action-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.home-page .action-btn i {
+    font-size: 0.875rem;
+}
+
+/* Like button specific styles */
+.home-page .like-btn:hover {
+    color: #3b82f6;
+    border-color: #93c5fd;
+    background: #eff6ff;
+}
+
+.home-page .like-btn.liked {
+    color: #3b82f6;
+    background: #eff6ff;
+    border-color: #93c5fd;
+    font-weight: 600;
+}
+
+.home-page .like-btn.liked i {
+    color: #3b82f6;
+}
+
+.home-page .like-count {
+    font-weight: 600;
+    min-width: 20px;
+    text-align: left;
+}
+
+/* Add a subtle animation for the like button */
+.home-page .like-btn.liked {
+    animation: likeAnimation 0.3s ease-out;
+}
+
+@keyframes likeAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Settings & General Form Styles */
+.home-page .section-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.home-page .section-title i {
+    color: #00bcd4;
+}
+
+.home-page .primary-btn {
+    background: linear-gradient(135deg, #00bcd4, #00e6e6);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    justify-content: center;
+}
+
+.home-page .primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 188, 212, 0.3);
+}
+
+.home-page .secondary-btn {
+    background: #f8f9fa;
+    color: #666;
+    border: 2px solid #e0e0e0;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    justify-content: center;
+}
+
+.home-page .secondary-btn:hover {
+    background: #e0e0e0;
+    border-color: #bdbdbd;
+}
+
+/* =================================================================
+   MODAL & UTILITY STYLES
+================================================================= */
+
+.home-page .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 2rem;
+}
+
+.home-page .modal-content {
+    background: white;
+    border-radius: 20px;
+    max-width: 500px;
+    width: 100%;
+    max-height: 80vh;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.home-page .modal-header {
+    background: linear-gradient(135deg, #00bcd4, #00e6e6);
+    color: white;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.home-page .modal-body {
+    padding: 2rem;
+}
+
+.home-page .modal-footer {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.home-page .modal-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.home-page .nda-text {
+    line-height: 1.6;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.home-page .status-card {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border-radius: 20px;
+    padding: 3rem 2rem;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    z-index: 2000;
+    max-width: 400px;
+    width: 90%;
+}
+
+.home-page .toast-container {
+    position: fixed;
+    top: 100px;
+    right: 2rem;
+    z-index: 3000;
+}
+
+.home-page .loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2500;
+}
+
+/* =================================================================
+   RESPONSIVE DESIGN
+================================================================= */
+
+@media (max-width: 768px) {
+    .home-page .profile-header {
+        padding: 1rem;
+    }
+    
+    .home-page .app-container {
+        padding: 0 0.5rem 120px 0.5rem;
+    }
+    
+    .home-page .card-header {
+        padding: 1rem 1.5rem;
+    }
+    
+    .home-page .card-content {
+        padding: 1rem 1.5rem;
+    }
+}
+
+/* =================================================================
+   FRIENDS, MESSAGES, MEETUP & SETTINGS STYLES
+================================================================= */
+
+/* General Input Groups (Search, Chat) */
+.home-page .input-group {
+    display: flex;
+    background: #f8f9fa;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.home-page .search-input,
+.home-page .chat-input {
+    flex: 1;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    background: transparent;
+    outline: none;
+    color: #333;
+}
+
+.home-page .search-input::placeholder,
+.home-page .chat-input::placeholder {
+    color: #999;
+}
+
+.home-page .search-btn,
+.home-page .send-btn {
+    background: #00bcd4;
+    border: none;
+    color: white;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    font-size: 1rem;
+}
+
+.home-page .search-btn:hover,
+.home-page .send-btn:hover {
+    background: #0097a7;
+}
+
+/* Friends Card */
+.home-page .requests-section {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.home-page .friends-list,
+.home-page .requests-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.home-page .friend-item,
+.home-page .request-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+}
+
+.home-page .friend-item:hover {
+    background: #e3f2fd;
+    transform: translateY(-1px);
+}
+
+/* --- FINAL & WORKING BUBBLE BUTTON STYLES --- */
+.home-page .friend-item .friend-actions .bubble-btn,
+.home-page .request-item .friend-actions .bubble-btn {
+    /* Remove default browser styling */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    /* Apply our custom styles */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    margin: 0;
+    background: #00bcd4; /* CHANGED: Use site's primary blue */
+    color: white; /* CHANGED: Make the icon white */
+    border: none;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    line-height: 1;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.2s ease;
+}
+
+.home-page .friend-item .friend-actions .bubble-btn:hover,
+.home-page .request-item .friend-actions .bubble-btn:hover {
+    transform: scale(1.1);
+    filter: brightness(110%); /* Add a subtle brightness on hover */
+}
+
+/* Specific hover colors for different actions */
+.home-page .friend-item .friend-actions .bubble-btn.add-btn:hover,
+.home-page .request-item .friend-actions .bubble-btn.accept-btn:hover {
+    background-color: #28a745; /* Success Green */
+}
+
+.home-page .friend-item .friend-actions .bubble-btn.remove-btn:hover,
+.home-page .request-item .friend-actions .bubble-btn.deny-btn:hover {
+    background-color: #dc3545; /* Danger Red */
+}
+
+.home-page .friend-item .friend-actions .bubble-btn.message-btn:hover {
+    background-color: #0097a7; /* Darker Blue */
+}
+/* --- END OF FINAL RULES --- */
+
+
+/* Messages Card */
+.home-page .messages-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.home-page #messagesCard .card-content {
+    overflow: hidden !important; /* Override the default card-content scrolling */
+    padding: 1.5rem 2rem 0 2rem; /* Remove bottom padding to allow form to reach bottom */
+}
+
+.home-page .chat-header {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+    flex-shrink: 0;
+}
+
+.home-page .chat-user-info {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.home-page .chat-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #00bcd4;
+}
+
+.home-page .chat-username {
+    font-weight: 600;
+    color: #333;
+}
+
+.home-page .chat-container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+}
+
+.home-page .chat-box {
+    flex: 1;
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    overflow-y: auto;
+    min-height: 0;
+}
+
+/* Chat form positioned at the bottom */
+.home-page .chat-form {
+    flex-shrink: 0;
+    padding: 1.5rem 2rem;
+    background: white;
+    border-top: 1px solid #f0f0f0;
+    margin: 0 -2rem; /* Extend to card edges */
+    margin-top: auto; /* Push to bottom */
+}
+
+.home-page .chat-form .input-group {
+    margin: 0; /* Remove any default margins */
+}
+
+/* --- ADD THESE CHAT MESSAGE POSITIONING STYLES --- */
+.home-page .chat-message {
+    display: flex;
+    margin-bottom: 1rem;
+    max-width: 100%;
+}
+
+/* Messages from current user (right side) */
+.home-page .chat-message.me {
+    justify-content: flex-end;
+}
+
+.home-page .chat-message.me .chat-bubble {
+    background: linear-gradient(135deg, #00bcd4, #00e6e6);
+    color: white;
+    border-radius: 18px 18px 4px 18px;
+    padding: 0.8rem 1.2rem;
+    max-width: 70%;
+    word-wrap: break-word;
+    box-shadow: 0 2px 8px rgba(0, 188, 212, 0.3);
+}
+
+/* Messages from other user (left side) */
+.home-page .chat-message.them {
+    justify-content: flex-start;
+}
+
+.home-page .chat-message.them .chat-bubble {
+    background: white;
+    color: #333;
+    border: 1px solid #e0e0e0;
+    border-radius: 18px 18px 18px 4px;
+    padding: 0.8rem 1.2rem;
+    max-width: 70%;
+    word-wrap: break-word;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+/* --- END OF CHAT MESSAGE STYLES --- */
+
+.home-page .no-chat-selected {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #999;
+    text-align: center;
+}
+
+.home-page .chat-placeholder-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #ddd;
+}
+
+/* Meetup Card */
+.home-page .meetup-intro {
+    text-align: center;
+    padding: 2rem 1rem;
+    background: linear-gradient(135deg, #f0f9ff, #e3f2fd);
+    border-radius: 16px;
+    margin-bottom: 2rem;
+}
+
+.home-page .meetup-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #00bcd4, #00e6e6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    color: white;
+    font-size: 2rem;
+}
+
+.home-page .meetup-description {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.6;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.home-page .meetup-friends-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.home-page .meetup-actions {
+    display: flex;
+    gap: 1rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f0f0f0;
+}
+
+/* Settings Card */
+.home-page .settings-section {
+    background: #f8f9fa;
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.home-page .profile-photo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+}
+
+.home-page .current-photo {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    border: 3px solid #00bcd4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: #00bcd4;
+    overflow: hidden;
+}
+
+.home-page .current-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.home-page .photo-change-btn {
+    background: #e3f2fd;
+    border: 1px solid #00bcd4;
+    color: #00bcd4;
+    padding: 0.8rem 1.5rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.home-page .photo-change-btn:hover {
+    background: #00bcd4;
+    color: white;
+}
+
+.home-page .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.home-page .form-label {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.home-page .form-input,
+.home-page .form-textarea {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #f0f0f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s ease;
+    background: white;
+}
+
+.home-page .form-input:focus,
+.home-page .form-textarea:focus {
+    outline: none;
+    border-color: #00bcd4;
+}
+
+.home-page .form-textarea {
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+}
+
+.home-page .danger-btn {
+    background: linear-gradient(135deg, #ff5252, #f44336);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    justify-content: center;
+}
+
+.home-page .danger-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 82, 82, 0.3);
+}
+
+/* --- ADD THIS NEW RULE --- */
+.home-page .card-action-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+}
+
+.home-page .card-action-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
+
+/* News Feed Styles */
+.no-posts {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: #6b7280;
+}
+
+.no-posts-icon {
+    font-size: 4rem;
+    color: #d1d5db;
+    margin-bottom: 1rem;
+}
+
+.no-posts h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #374151;
+}
+
+.no-posts p {
+    font-size: 1rem;
+    color: #6b7280;
+}
+
+.post-item {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e5e7eb;
+    transition: all 0.2s ease;
+    overflow-wrap: break-word; /* Handle long content */
+}
+
+.post-item:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-color: #00bcd4;
+}
+
+.post-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.post-header.high-priority {
+    border-left: 4px solid #ef4444;
+    padding-left: 1rem;
+    margin-left: -1rem;
+    background: linear-gradient(90deg, rgba(239, 68, 68, 0.1) 0%, transparent 100%);
+}
+
+.post-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    font-size: 1.25rem;
+}
+
+.post-info {
+    flex: 1;
+}
+
+.post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.25rem;
+}
+
+.post-username {
+    font-weight: 600;
+    color: #111827;
+    font-size: 1rem;
+}
+
+.post-type-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.priority-badge {
+    background: #fef2f2;
+    color: #dc2626;
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border: 1px solid #fecaca;
+}
+
+.post-time {
+    color: #6b7280;
+    font-size: 0.875rem;
+}
+
+.post-content {
+    margin-bottom: 1rem;
+    overflow-wrap: break-word;
+}
+
+.post-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
+.post-text {
+    color: #374151;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    white-space: pre-wrap; /* Preserve line breaks and spaces */
+    word-wrap: break-word; /* Break long words */
+    overflow-wrap: break-word; /* Handle long content */
+    margin: 0; /* Remove default paragraph margins */
+}
+
+.post-actions {
+    display: flex;
+    gap: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #f3f4f6;
+    justify-content: center; /* Center the single like button */
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    color: #6b7280;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 80px;
+    justify-content: center;
+}
+
+.action-btn:hover {
+    background: #f3f4f6;
+    color: #374151;
+    border-color: #d1d5db;
+}
+
+.action-btn i {
+    font-size: 0.875rem;
+}
+
+.like-btn:hover {
+    color: #3b82f6;
+    border-color: #93c5fd;
+    background: #eff6ff;
+}
+
+.comment-btn:hover {
+    color: #10b981;
+    border-color: #86efac;
+    background: #f0fdf4;
+}
+
+.share-btn:hover {
+    color: #8b5cf6;
+    border-color: #c4b5fd;
+    background: #faf5ff;
+}
+
+.error-state {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: #6b7280;
+}
+
+.error-icon {
+    font-size: 4rem;
+    color: #ef4444;
+    margin-bottom: 1rem;
+}
+
+.error-state h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #374151;
+}
+
+.error-state p {
+    font-size: 1rem;
+    color: #6b7280;
+    margin-bottom: 1.5rem;
+}
+
+.retry-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: #00bcd4;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.retry-btn:hover {
+    background: #0891b2;
+}
+
+/* Background color utilities for post avatars */
+.bg-blue-100 { background-color: #dbeafe; }
+.bg-green-100 { background-color: #dcfce7; }
+.bg-orange-100 { background-color: #fed7aa; }
+.bg-purple-100 { background-color: #e9d5ff; }
+
+.text-blue-600 { color: #2563eb; }
+.text-green-600 { color: #16a34a; }
+.text-orange-600 { color: #ea580c; }
+.text-purple-600 { color: #9333ea; }
+
+.bg-blue-100.text-blue-800 { background-color: #dbeafe; color: #1e40af; }
+.bg-green-100.text-green-800 { background-color: #dcfce7; color: #166534; }
+.bg-orange-100.text-orange-800 { background-color: #fed7aa; color: #9a3412; }
+.bg-purple-100.text-purple-800 { background-color: #e9d5ff; color: #6b21a8; }

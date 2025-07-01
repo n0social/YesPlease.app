@@ -1,0 +1,44 @@
+{
+  "name": "yesplease-app",
+  "version": "1.0.0",
+  "description": "A modern social meetup platform where users can connect with friends and arrange safe, proximity-based meetups.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "setup-db": "node setup-database.js",
+    "init-db": "mysql -u root -p < init-database.sql",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "social",
+    "meetup",
+    "friends",
+    "proximity",
+    "chat",
+    "express",
+    "mysql",
+    "nodejs"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/yesplease-app.git"
+  },
+  "dependencies": {
+    "@sendgrid/mail": "^8.1.5",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^17.0.0",
+    "express": "^5.1.0",
+    "express-mysql-session": "^3.0.3",
+    "express-session": "^1.18.1",
+    "mailgun.js": "^12.0.3",
+    "multer": "^2.0.1",
+    "mysql2": "^3.14.1",
+    "nodemailer": "^7.0.4",
+    "path": "^0.12.7"
+  }
+}
